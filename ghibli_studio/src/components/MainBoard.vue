@@ -38,7 +38,7 @@ export default {
             }
             film.id = films[index].id;
             film.title = films[index].title;
-            film.description = films[index].description;
+            film.desserveservecription = films[index].description;
             film.director = films[index].director;
             film.year = films[index].release_date;
             film.rating = films[index].rt_score;
@@ -61,7 +61,7 @@ export default {
   display: flex;
   justify-content: space-around;
   flex-flow: row wrap;
-  flex-shrink: 1;
+  justify-items: flex-start;
 }
 
 .movie-card {
