@@ -7,19 +7,16 @@
                   :sub-title="filmSubtitle"
                   img-src="https://picsum.photos/600/300/?image=25"
                   border-variant="dark"
-          />
+          >
+          <span>Rating: {{ filmRating }}</span>
+          </b-card>
         </router-link>
       </div>
   </div>
 </template>
 
 <script>
-/**
- * Title
- * Director's Name
- * Year
- * Rating
- */
+
 export default {
   name: 'MovieIcon',
   props: {
@@ -40,7 +37,7 @@ export default {
       return this.value.film.title;
     },
     filmSubtitle() {
-      return this.value.film.director + ' - ' + this.value.film.year;
+      return `${this.value.film.director} - ${this.value.film.year}`;
     },
     filmRating() {
       return this.value.film.rating;
@@ -53,6 +50,7 @@ export default {
   #MovieIcon {
     margin: 1rem;
     width: 16rem;
+    font-family: 'Niramit', sans-serif;
   }
 
   .card {
