@@ -1,0 +1,20 @@
+<template>
+  <div id="app">
+    <router-view/>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'App',
+}
+</script>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Niramit|Roboto');
+
+.router:link, .router:visited, .router:hover, .router:link {
+  text-decoration: none;
+  color: black;
+}
+</style>
