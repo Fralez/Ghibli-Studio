@@ -17,4 +17,17 @@ export default {
   text-decoration: none;
   color: black;
 }
+.background--img {
+    background: url('./assets/mainBackground.jpg');
+    background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+    transform: scale(1.05);
+  }
+  .body {
+    position: absolute;
+  }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div id="MainBoard">
-    <div>
+    <div class="background--img"></div>
+    <div class="body">
       <div class="text-center mt-4 mb-4">
         <h1 class="page-title">Ghibli Studios - Galería</h1>
       </div>
@@ -41,7 +42,6 @@ export default {
       if (this.selectedOrder == 'recentFilms') {
         const films = this.recentFilms()
         return films
-        
       }
       //ORDEN: Más antiguas
       else if (this.selectedOrder == 'inverseFilms') {
@@ -59,7 +59,6 @@ export default {
     recentFilms() {
       const orderedFilms = this.films.sort((filmA, filmB) => {
           if (filmA.year > filmB.year) return -1;
-          if (filmA.year == filmB.year) return 0;
           if (filmA.year < filmB.year) return 1;
         })
       return orderedFilms
@@ -67,16 +66,14 @@ export default {
     inverseFilms() {
       const orderedFilms = this.films.sort((filmA, filmB) => {
           if (filmA.year > filmB.year) return 1;
-          if (filmA.year == filmB.year) return 0;
           if (filmA.year < filmB.year) return -1;
         })
       return orderedFilms
     },
     ratingFilms() {
       const orderedFilms = this.films.sort((filmA, filmB) => {
-          if (filmA.rating > filmB.rating) return -1;
-          if (filmA.rating == filmB.rating) return 0;
-          if (filmA.rating < filmB.rating) return 1;
+          if (Number(filmA.rating) > Number(filmB.rating)) return -1;
+          if (Number(filmA.rating) < Number(filmB.rating)) return 1;
 
       })
       return orderedFilms

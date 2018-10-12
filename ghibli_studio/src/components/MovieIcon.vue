@@ -1,14 +1,14 @@
 <template>
   <div id="MovieIcon">
       <div>
-        <router-link :to="{name: 'MovieDetails', params: {movieID: filmID} }" class="router">
+        <router-link :to="{name: 'MovieDetails', params: {movieID: value.film.id} }" class="router">
           <b-card class="card"
-                  :title="filmTitle"
-                  :sub-title="filmSubtitle"
+                  :title="value.film.title"
+                  :sub-title="`${this.value.film.director} - ${this.value.film.year}`"
                   img-src="https://picsum.photos/600/300/?image=25"
                   border-variant="dark"
           >
-          <span>Rating: {{ filmRating }}</span>
+          <span>Rating: {{ value.film.rating }}</span>
           </b-card>
         </router-link>
       </div>
@@ -28,20 +28,6 @@ export default {
       year: String,
       rating: String
     }
-  },
-  computed: {
-    filmID() {
-      return this.value.film.id;
-    },
-    filmTitle() {
-      return this.value.film.title;
-    },
-    filmSubtitle() {
-      return `${this.value.film.director} - ${this.value.film.year}`;
-    },
-    filmRating() {
-      return this.value.film.rating;
-    },
   }
 }
 </script>

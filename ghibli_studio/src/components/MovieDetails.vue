@@ -1,53 +1,56 @@
 <template>
-  <div id="MovieDetails" class="background--img">
-    <div class="root">
-      <router-link to="/" class="router">
-        <div>
-          <span class="text--root font-weigth-bold m-3">Back to Movie's List</span>
-        </div>
-      </router-link>      
-    </div>
-    <b-jumbotron class="jumbo">
-      <template slot="header">
-        <h1 class="filmTitle">{{ film.title }}</h1>
-      </template>
-      <template class="filmData" slot="lead">
-        <p class="filmDescription">{{ film.description }}</p>
-      </template>
-      <div class="filmInformation">
-        <template>
-          <div class="filmData">
-            <p>
-              <span class="font-weight-bold">Director:</span> 
-              {{ film.director }}
-            </p>
-            <p>
-              <span class="font-weight-bold">Productor:</span> 
-              {{ film.producer }}
-            </p>
-            <p>
-              <span class="font-weight-bold">Año de Publicación:</span> 
-              {{ film.release_date }}
-            </p>
-            <p>
-              <span class="font-weight-bold">Rating:</span> 
-              {{ film.rt_score }}
-            </p>
-
-            <div class="characters-btn" v-if="people.length > 1">
-              <b-btn v-b-modal.charactersModal>
-                <span class="font-weight-bold">¡Clickéame Para ver los Personajes!</span>
-              </b-btn>
-            </div>
+  <div id="MovieDetails">
+    <div class="background--img"/>
+    <div class="body">
+      <div class="root">
+        <router-link to="/" class="router">
+          <div>
+            <span class="text--root font-weigth-bold m-3">Back to Movie's List</span>
           </div>
-        </template>
+        </router-link>      
       </div>
-    </b-jumbotron>
-    <div v-if="people.length > 1">
-      <b-modal id="charactersModal" size="lg" title="Personajes">
-          <!-- Characters -->
-          <CharacterCard v-for="person in people" :key="person.id" :value={person} />
-      </b-modal>
+      <b-jumbotron class="jumbo">
+        <template slot="header">
+          <h1 class="filmTitle">{{ film.title }}</h1>
+        </template>
+        <template class="filmData" slot="lead">
+          <p class="filmDescription">{{ film.description }}</p>
+        </template>
+        <div class="filmInformation">
+          <template>
+            <div class="filmData">
+              <p>
+                <span class="font-weight-bold">Director:</span> 
+                {{ film.director }}
+              </p>
+              <p>
+                <span class="font-weight-bold">Productor:</span> 
+                {{ film.producer }}
+              </p>
+              <p>
+                <span class="font-weight-bold">Año de Publicación:</span> 
+                {{ film.release_date }}
+              </p>
+              <p>
+                <span class="font-weight-bold">Rating:</span> 
+                {{ film.rt_score }}
+              </p>
+
+              <div class="characters-btn" v-if="people.length > 1">
+                <b-btn v-b-modal.charactersModal>
+                  <span class="font-weight-bold">¡Clickéame Para ver los Personajes!</span>
+                </b-btn>
+              </div>
+            </div>
+          </template>
+        </div>
+      </b-jumbotron>
+      <div v-if="people.length > 1">
+        <b-modal id="charactersModal" size="lg" title="Personajes">
+            <!-- Characters -->
+            <CharacterCard v-for="person in people" :key="person.id" :value={person} />
+        </b-modal>
+      </div>
     </div>
   </div>
 </template>
@@ -69,11 +72,6 @@ export default {
       peopleURLs: [],
       people: [],
       }
-  },
-  methods: {
-    displayCharacters() {
-      
-    },
   },
   created() {
     const self = this;
@@ -116,9 +114,8 @@ export default {
   #MovieDetails {
     font-family: 'Niramit', sans-serif;
   }
-
   .jumbo {
-    background-color: rgba(0, 0, 0, 0.2) !important;
+    background-color: rgba(255, 255, 255, 0.7) !important;
   }
 
   .filmData {
